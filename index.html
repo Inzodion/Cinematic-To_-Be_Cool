@@ -12,8 +12,11 @@
                 super('intro');
             }
             create() {
-                this.add.text(10,10, "click to begin.");
-                this.input.on('pointerdown', () => this.scene.start('body'));
+                this.add.text(10,10, "To Be Cool.");
+                this.add.text(20,100, "Play");
+                this.add.text(20,120, "Settings");
+                this.add.text(20,140, "Quit");
+
             }
         }
 
@@ -40,16 +43,61 @@
                 this.cameras.main.fadeOut(3000,0x0000,0,0,);
                 });
 
-                // let cool1 = this.add.text(200,200, "On A Journey to Aquire Coolness.")
+            
 
-                this.input.on('pointerdown', () => this.scene.start('intro'));
+                this.input.on('pointerdown', () => this.scene.start('body2'));
+            }
+        }
+
+        class Body2 extends Phaser.Scene {
+            constructor() {
+                super('body2');
+            }
+
+            create() {
+                let cool1 = this.add.text(150,200, "On A Journey to Aquire Coolness.");
+            
+                this.input.on('pointerdown', () => this.scene.start('body3'));
+            }
+        
+
+        }
+
+    
+        class Body3 extends Phaser.Scene {
+            constructor() {
+                super('body3');
+            }
+
+            create() {
+                let cool2 = this.add.text(150,200, "I got to go on a quest to find my own pair of Sunglasses...");
+                let fans = this.add.text(250, 250, "“Oh man those sunglass are cool!”");
+                let fans2 = this.add.text(100, 300, "“I wished I had a pair”");
+                let fans3 = this.add.text(200,400, "“So stylish”");
+
+
+                this.input.on('pointerdown', () => this.scene.start('body4'));
+            }
+        
+
+        }
+
+        class Body4 extends Phaser.Scene {
+            constructor() {
+                super('body4');
+            }
+
+            create(){
+
+                
+                this.input.on('pointerdown', () => this.scene.start('Intro'));        
             }
         }
 
         new Phaser.Game({
             width: 640,
             height: 480,
-            scene: [Body, Intro],
+            scene: [Body, Body2, Body3, Body4, Intro],
 
         });
 

@@ -41,10 +41,12 @@
             }
             preload(){
                 this.load.image("logo","logo.png");
-
+                this.load.audio("int", "sound for intro - Made with Clipchamp.mp3");
             }
 
             create() {
+                let sfx = this.sound.add('int');
+                sfx.play();
                 let bar = this.add.rectangle(320,260,620,80, 0xff665a5a);
                 let logo = this.add.sprite(315,120, "logo");
                 let name = this.add.text(270,250, "Inzo Inc.");
@@ -53,6 +55,7 @@
                     targets: bar,name,
                     scale: {from: 0, to: 1},
                     duratiom: 3000
+                
                 });
 
                 this.time.delayedCall(3000, () => {
@@ -90,9 +93,12 @@
             }
             preload(){
                 this.load.image("Cool Guy", "Cool Guy.png");
+                this.load.audio("so cool", "so cooool.mp3");
             }
 
             create() {
+                let sfx = this.sound.add("so cool");
+                sfx.play();
                 let cool2 = this.add.text(30,20, "I got to go on a quest to find my own pair of Sunglasses...");
                 let fans = this.add.text(250, 130, "“Oh man those sunglass are cool!”");
                 let fans2 = this.add.text(80, 90, "“I wished I had a pair”");
